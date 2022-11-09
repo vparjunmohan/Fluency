@@ -29,6 +29,10 @@ extension TranslationViewController {
         toLanguageView.applyCommonDropShadow(radius: 5, opacity: 0.1)
         topView.applyCommonDropShadow(radius: 5, opacity: 0.1)
         bottomView.applyCommonDropShadow(radius: 5, opacity: 0.1)
+        let padding = sourceTextView.textContainer.lineFragmentPadding
+        sourceTextView.textContainerInset =  UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
+        targetTextView.textContainerInset =  UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
+        
     }
 }
 

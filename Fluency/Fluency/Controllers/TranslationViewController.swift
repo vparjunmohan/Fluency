@@ -14,6 +14,8 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var fromLanguageView: UIView!
     @IBOutlet weak var toLanguageView: UIView!
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var sourceTextView: UITextView!
+    @IBOutlet weak var targetTextView: UITextView!
     
     var translator: Translator!
     let locale = Locale.current
