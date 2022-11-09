@@ -32,7 +32,10 @@ extension TranslationViewController {
         let padding = sourceTextView.textContainer.lineFragmentPadding
         sourceTextView.textContainerInset =  UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
         targetTextView.textContainerInset =  UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
-        
+        sourceTextView.delegate = self
+        targetTextView.delegate = self
+        sourceTextView.returnKeyType = .go
+        sourceTextView.enablesReturnKeyAutomatically = true
     }
 }
 

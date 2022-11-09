@@ -28,7 +28,20 @@ class TranslationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        inputTextField.delegate = self
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            if touch.view != fromLanguageView {
+                sourceTextView.resignFirstResponder()
+            }
+        }
+    }
+    
+    
+    @IBAction func clearTextView(_ sender: UIButton) {
+        sourceTextView.text = ""
+        targetTextView.text = ""
     }
     
     
@@ -58,6 +71,16 @@ class TranslationViewController: UIViewController {
     }
     
     
+}
+
+extension TranslationViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 
 //extension ViewController: UITextFieldDelegate {
