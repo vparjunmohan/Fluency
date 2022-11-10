@@ -108,17 +108,17 @@
                                 <rect key="frame" x="87.5" y="617" width="200" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tk-eU-dFR">
-                                        <rect key="frame" x="45" y="11.5" width="30" height="26.5"/>
+                                        <rect key="frame" x="20" y="11.5" width="30" height="26.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="atA-I4-fPt"/>
                                             <constraint firstAttribute="width" constant="30" id="pld-VL-5Ag"/>
                                         </constraints>
-                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <color key="tintColor" systemColor="systemGray3Color"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="text.justify" catalog="system"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJH-aM-JWd">
-                                        <rect key="frame" x="125" y="10" width="30" height="29.5"/>
+                                        <rect key="frame" x="150" y="10" width="30" height="29.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="38w-MV-hrM"/>
                                             <constraint firstAttribute="height" constant="30" id="TSW-7c-E6g"/>
@@ -127,14 +127,29 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAA-Pm-kMF">
+                                        <rect key="frame" x="85" y="11.5" width="30" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="mZp-y6-uYn"/>
+                                            <constraint firstAttribute="height" constant="30" id="vFo-2J-O92"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemGray3Color"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="speaker.2.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="dictateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y9x-ff-rCA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="2Tk-eU-dFR" firstAttribute="centerX" secondItem="qwD-Fs-llL" secondAttribute="centerX" constant="-40" id="0L2-5s-puq"/>
                                     <constraint firstItem="nJH-aM-JWd" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="Nb0-kK-P8L"/>
                                     <constraint firstItem="2Tk-eU-dFR" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="OsO-gd-X44"/>
+                                    <constraint firstItem="2Tk-eU-dFR" firstAttribute="leading" secondItem="qwD-Fs-llL" secondAttribute="leading" constant="20" id="TOV-yE-Kvg"/>
+                                    <constraint firstItem="VAA-Pm-kMF" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="hGc-mg-K3I"/>
+                                    <constraint firstItem="VAA-Pm-kMF" firstAttribute="centerX" secondItem="qwD-Fs-llL" secondAttribute="centerX" id="p8Z-Th-sUs"/>
+                                    <constraint firstAttribute="trailing" secondItem="nJH-aM-JWd" secondAttribute="trailing" constant="20" id="qJZ-h1-QVV"/>
                                     <constraint firstAttribute="width" constant="200" id="r1j-My-JlW"/>
-                                    <constraint firstItem="nJH-aM-JWd" firstAttribute="centerX" secondItem="qwD-Fs-llL" secondAttribute="centerX" constant="40" id="xVV-fz-yfm"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0e-Vf-sS2">
@@ -290,6 +305,7 @@
         <image name="doc.on.doc.fill" catalog="system" width="116" height="128"/>
         <image name="fibrechannel" catalog="system" width="128" height="92"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="speaker.2.fill" catalog="system" width="128" height="88"/>
         <image name="text.justify" catalog="system" width="128" height="99"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">

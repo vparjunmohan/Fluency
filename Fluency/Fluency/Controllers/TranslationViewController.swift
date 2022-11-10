@@ -7,6 +7,7 @@
 
 import UIKit
 import MLKit
+import AVFoundation
 
 class TranslationViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class TranslationViewController: UIViewController {
     var translator: Translator!
     let locale = Locale.current
     let localModels =  ModelManager.modelManager().downloadedTranslateModels
+    let synthesizer = AVSpeechSynthesizer()
     
     
     override func viewDidLoad() {
@@ -63,7 +65,17 @@ class TranslationViewController: UIViewController {
         translate()
     }
     
-    
+    @IBAction func dictateAction(_ sender: UIButton) {
+        let dictateText = targetTextView.text.trimmingCharacters(in: .whitespaces)
+        if dictateText != "" {
+            let utterance = AVSpeechUtterance(string: dictateText)
+            let targetLanguage = AppUtils().retrieveLanguageCode(rawValue: targetButton.title(for: .normal)!.lowercased())
+            utterance.voice = AVSpeechSynthesisVoice(language: targetLanguage.rawValue)
+            utterance.rate = 0.5
+            utterance.volume = 1
+            synthesizer.speak(utterance)
+        }
+    }
     
     func translate() {
         let sourceLanguage = AppUtils().retrieveLanguageCode(rawValue: sourceButton.title(for: .normal)!.lowercased())
