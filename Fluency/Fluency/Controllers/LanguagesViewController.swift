@@ -13,7 +13,7 @@ protocol UpdateLanguageDelegate {
 }
 
 class LanguagesViewController: UIViewController {
-
+    
     @IBOutlet weak var languageTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     
@@ -26,10 +26,18 @@ class LanguagesViewController: UIViewController {
     let localModels =  ModelManager.modelManager().downloadedTranslateModels
     var updateDelegate: UpdateLanguageDelegate!
     var currentButtonTag: Int!
+    var indexArray: [IndexPath] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        for model in localModels {
+            var index = allLanguages.firstIndex(of: model.language)
+            indexArray.append(IndexPath(row: index!, section: 0))
+        }
+        
+        print(indexArray)
     }
     
     
@@ -44,7 +52,7 @@ class LanguagesViewController: UIViewController {
     }
     
     
-
+    
 }
 
 extension LanguagesViewController: UITableViewDelegate, UITableViewDataSource {
@@ -55,11 +63,13 @@ extension LanguagesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguagesTableViewCell", for: indexPath) as! LanguagesTableViewCell
         let languageModel = allLanguages[indexPath.row]
-        if localModels.description.contains(languageModel.rawValue) == false {
-            cell.downloadButton.isHidden = false
-        } else {
+        
+        if indexArray.contains(indexPath){
             cell.downloadButton.isHidden = true
+        } else {
+            cell.downloadButton.isHidden = false
         }
+        
         if AppUtils().retrieveLanguageName(languageCode: languageModel.rawValue) != "" {
             cell.languageName.text = AppUtils().retrieveLanguageName(languageCode: languageModel.rawValue)
         }
@@ -69,6 +79,9 @@ extension LanguagesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedCell = tableView.cellForRow(at: indexPath) as? LanguagesTableViewCell {
+            
+//            AppUtils().downloadLanguage(language: AppUtils().retrieveLanguageCode(rawValue: selectedCell.languageName.text!.lowercased()))
+//            languageTableView.reloadData()
             if updateDelegate != nil {
                 updateDelegate.updateSelectedLanguage(selected: selectedCell.languageName.text!, buttonTag: currentButtonTag)
             }
@@ -81,7 +94,6 @@ extension LanguagesViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
     
 }
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MLKit
 
 class AppUtils: NSObject {
     
@@ -237,4 +238,155 @@ class AppUtils: NSObject {
         }
         return language
     }
+    
+    func retrieveLanguageCode(rawValue: String) -> TranslateLanguage {
+        var languageCode: TranslateLanguage!
+        switch rawValue{
+        case "afrikaans":
+            languageCode = .afrikaans
+        case "albanian":
+            languageCode = .albanian
+        case "arabic":
+            languageCode = .arabic
+        case "bengali":
+            languageCode = .bengali
+        case "belarusian":
+            languageCode = .belarusian
+        case "bulgarian":
+            languageCode = .bulgarian
+        case "catalan":
+            languageCode = .catalan
+        case "chinese":
+            languageCode = .chinese
+        case "croatian":
+            languageCode = .croatian
+        case "czech":
+            languageCode = .czech
+        case "danish":
+            languageCode = .danish
+        case "dutch":
+            languageCode = .dutch
+        case "english":
+            languageCode = .english
+        case "esperanto":
+            languageCode = .eperanto
+        case "estonian":
+            languageCode = .estonian
+        case "finnish":
+            languageCode = .finnish
+        case "french":
+            languageCode = .french
+        case "galician":
+            languageCode = .galician
+        case "georgian":
+            languageCode = .georgian
+        case "german":
+            languageCode = .german
+        case "greek":
+            languageCode = .greek
+        case "gujarati":
+            languageCode = .gujarati
+        case "haitian":
+            languageCode = .haitianCreole
+        case "hebrew":
+            languageCode = .hebrew
+        case "hindi":
+            languageCode = .hindi
+        case "hungarian":
+            languageCode = .hungarian
+        case "icelandic":
+            languageCode = .icelandic
+        case "indonesian":
+            languageCode = .indonesian
+        case "irish":
+            languageCode = .irish
+        case "italian":
+            languageCode = .italian
+        case "japanese":
+            languageCode = .japanese
+        case "kannada":
+            languageCode = .kannada
+        case "korean":
+            languageCode = .korean
+        case "latvian":
+            languageCode = .latvian
+        case "lithuanian":
+            languageCode = .lithuanian
+        case "macedonian":
+            languageCode = .macedonian
+        case "malay":
+            languageCode = .malay
+        case "maltese":
+            languageCode = .maltese
+        case "marathi":
+            languageCode = .marathi
+        case "norwegian":
+            languageCode = .norwegian
+        case "persian":
+            languageCode = .persian
+        case "polish":
+            languageCode = .polish
+        case "portuguese":
+            languageCode = .portuguese
+        case "romanian":
+            languageCode = .romanian
+        case "russian":
+            languageCode = .russian
+        case "slovak":
+            languageCode = .slovak
+        case "slovenian":
+            languageCode = .slovenian
+        case "spanish":
+            languageCode = .spanish
+        case "swahili":
+            languageCode = .swahili
+        case "swedish":
+            languageCode = .swedish
+        case "tamil":
+            languageCode = .tamil
+        case "telugu":
+            languageCode = .telugu
+        case "northaiwegian":
+            languageCode = .thai
+        case "turkish":
+            languageCode = .turkish
+        case "ukrainian":
+            languageCode = .ukrainian
+        case "urdu":
+            languageCode = .urdu
+        case "vietnamese":
+            languageCode = .vietnamese
+        case "welsh":
+            languageCode = .welsh
+        default:
+            break
+        }
+        return languageCode
+    }
+    
+    func downloadLanguage(language: TranslateLanguage) {
+        let downloadModel = TranslateRemoteModel.translateRemoteModel(language: language)
+        
+        // Keep a reference to the download progress so you can check that the model
+        // is available before you use it.
+        var progress = ModelManager.modelManager().download(
+            downloadModel,
+            conditions: ModelDownloadConditions(
+                allowsCellularAccess: true,
+                allowsBackgroundDownloading: true
+            )
+        )
+        if progress.isFinished == true {
+            print("finished")
+        } else {
+            ModelManager.modelManager().download(
+                downloadModel,
+                conditions: ModelDownloadConditions(
+                    allowsCellularAccess: true,
+                    allowsBackgroundDownloading: true
+                )
+            )
+        }
+    }
+    
 }

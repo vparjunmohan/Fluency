@@ -56,33 +56,71 @@ class TranslationViewController: UIViewController {
         let targetLanguage = targetButton.title(for: .normal)
         sourceButton.setTitle(targetLanguage, for: .normal)
         targetButton.setTitle(sourceLanguage, for: .normal)
+        let sourceText = sourceTextView.text
+        let targetText = targetTextView.text
+        sourceTextView.text = targetText
+        targetTextView.text = sourceText
+        translate()
     }
     
     
-    @IBAction func translate(_ sender: UIButton) {
-        // Create an English-German translator:
-        let options = TranslatorOptions(sourceLanguage: .english, targetLanguage: .german)
-        let englishGermanTranslator = Translator.translator(options: options)
-        
+    
+    func translate() {
+        let sourceLanguage = AppUtils().retrieveLanguageCode(rawValue: sourceButton.title(for: .normal)!.lowercased())
+        let targetLanguage = AppUtils().retrieveLanguageCode(rawValue: targetButton.title(for: .normal)!.lowercased())
+        let options = TranslatorOptions(sourceLanguage: sourceLanguage , targetLanguage: targetLanguage)
+        let translator = Translator.translator(options: options)
         let conditions = ModelDownloadConditions(
             allowsCellularAccess: true,
             allowsBackgroundDownloading: true
         )
-        englishGermanTranslator.downloadModelIfNeeded(with: conditions) { [self] error in
+        translator.downloadModelIfNeeded(with: conditions) { [self] error in
             guard error == nil else { return }
-            
             // Model downloaded successfully. Okay to start translating.
-//            let enteredText = inputTextField.text!
-            
-//            englishGermanTranslator.translate(enteredText) { [self] translatedText, error in
+            let enteredText = sourceTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+            if enteredText != "" {
+                translator.translate(enteredText) { [self] translatedText, error in
+                    guard error == nil, let translatedText = translatedText else { return }
+                    // Translation succeeded.
+                    targetTextView.text = translatedText
+                }
+            }
+        }
+
+//        let enteredText = sourceTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
+//        if enteredText != "" {
+//            translator.translate(enteredText) { [self] translatedText, error in
 //                guard error == nil, let translatedText = translatedText else { return }
-//
 //                // Translation succeeded.
-////                translatedTextView.text = translatedText
+//                targetTextView.text = translatedText
 //
 //            }
-        }
+//        }
     }
+//    @IBAction func translate(_ sender: UIButton) {
+//        // Create an English-German translator:
+//        let options = TranslatorOptions(sourceLanguage: .english, targetLanguage: .german)
+//        let englishGermanTranslator = Translator.translator(options: options)
+//
+//        let conditions = ModelDownloadConditions(
+//            allowsCellularAccess: true,
+//            allowsBackgroundDownloading: true
+//        )
+//        englishGermanTranslator.downloadModelIfNeeded(with: conditions) { [self] error in
+//            guard error == nil else { return }
+//
+//            // Model downloaded successfully. Okay to start translating.
+////            let enteredText = inputTextField.text!
+//
+////            englishGermanTranslator.translate(enteredText) { [self] translatedText, error in
+////                guard error == nil, let translatedText = translatedText else { return }
+////
+////                // Translation succeeded.
+//////                translatedTextView.text = translatedText
+////
+////            }
+//        }
+//    }
     
     
 }
@@ -91,6 +129,7 @@ extension TranslationViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()
+            translate()
             return false
         }
         return true
@@ -102,6 +141,7 @@ extension TranslationViewController: UpdateLanguageDelegate {
         if let currentButton = topView.viewWithTag(buttonTag) as? UIButton {
             currentButton.setTitle(selected, for: .normal)
         }
+        translate()
     }
     
 }

@@ -72,26 +72,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPF-FX-tNt">
                                 <rect key="frame" x="10" y="80" width="355" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pav-rQ-i6S">
-                                        <rect key="frame" x="8" y="165.5" width="25" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="SwJ-nQ-GEf"/>
-                                            <constraint firstAttribute="height" constant="25" id="rdo-fq-tud"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemGray3Color"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="doc.on.doc.fill" catalog="system"/>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-ln-aWs">
-                                        <rect key="frame" x="13" y="13" width="309" height="146"/>
+                                        <rect key="frame" x="13" y="13" width="309" height="174"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="go"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pZ-cS-U4J">
-                                        <rect key="frame" x="322" y="18.5" width="25" height="24"/>
+                                        <rect key="frame" x="322" y="16.5" width="25" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="OHR-zT-1jA"/>
                                             <constraint firstAttribute="width" constant="25" id="yWH-wV-tNQ"/>
@@ -108,12 +97,10 @@
                                 <constraints>
                                     <constraint firstItem="5pZ-cS-U4J" firstAttribute="leading" secondItem="ydZ-ln-aWs" secondAttribute="trailing" id="3H4-Ba-ZSl"/>
                                     <constraint firstItem="ydZ-ln-aWs" firstAttribute="top" secondItem="ZPF-FX-tNt" secondAttribute="top" constant="13" id="5t3-SU-PMu"/>
-                                    <constraint firstItem="Pav-rQ-i6S" firstAttribute="top" secondItem="ydZ-ln-aWs" secondAttribute="bottom" constant="8" id="6ed-ff-gqn"/>
-                                    <constraint firstItem="Pav-rQ-i6S" firstAttribute="leading" secondItem="ZPF-FX-tNt" secondAttribute="leading" constant="8" id="Lgr-BU-EPF"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pav-rQ-i6S" secondAttribute="bottom" constant="8" id="NGT-hv-aFZ"/>
                                     <constraint firstAttribute="trailing" secondItem="5pZ-cS-U4J" secondAttribute="trailing" constant="8" id="VYV-Yc-Au6"/>
-                                    <constraint firstItem="5pZ-cS-U4J" firstAttribute="top" secondItem="ydZ-ln-aWs" secondAttribute="top" constant="5" id="f5j-xn-k8Y"/>
+                                    <constraint firstItem="5pZ-cS-U4J" firstAttribute="top" secondItem="ydZ-ln-aWs" secondAttribute="top" constant="3" id="f5j-xn-k8Y"/>
                                     <constraint firstAttribute="trailing" secondItem="ydZ-ln-aWs" secondAttribute="trailing" constant="33" id="kNp-zd-IUQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="ydZ-ln-aWs" secondAttribute="bottom" constant="13" id="lKk-Pf-vAy"/>
                                     <constraint firstItem="ydZ-ln-aWs" firstAttribute="leading" secondItem="ZPF-FX-tNt" secondAttribute="leading" constant="13" id="rbu-Mz-ba3"/>
                                 </constraints>
                             </view>
@@ -156,9 +143,8 @@
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uwj-uw-Wjn">
                                         <rect key="frame" x="13" y="13" width="329" height="146"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaq-LU-4eM">

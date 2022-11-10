@@ -53,6 +53,7 @@ extension TranslationViewController {
     }
     
     func displayLanguagesController(buttonTag: Int) {
+        sourceTextView.resignFirstResponder()
         let languagesController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LanguagesViewController") as! LanguagesViewController
         self.addChild(languagesController)
         languagesController.updateDelegate = self
