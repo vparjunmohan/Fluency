@@ -16,13 +16,12 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var sourceTextView: UITextView!
     @IBOutlet weak var targetTextView: UITextView!
+    @IBOutlet weak var sourceButton: UIButton!
+    @IBOutlet weak var targetButton: UIButton!
     
     var translator: Translator!
     let locale = Locale.current
-    lazy var allLanguages = TranslateLanguage.allLanguages().sorted {
-        return locale.localizedString(forLanguageCode: $0.rawValue)!
-        < locale.localizedString(forLanguageCode: $1.rawValue)!
-    }
+    let localModels =  ModelManager.modelManager().downloadedTranslateModels
     
     
     override func viewDidLoad() {
@@ -32,7 +31,7 @@ class TranslationViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            if touch.view != fromLanguageView {
+            if touch.view == toLanguageView || touch.view == targetTextView || touch.view == view {
                 sourceTextView.resignFirstResponder()
             }
         }
@@ -42,6 +41,22 @@ class TranslationViewController: UIViewController {
     @IBAction func clearTextView(_ sender: UIButton) {
         sourceTextView.text = ""
         targetTextView.text = ""
+    }
+    
+    @IBAction func targetButton(_ sender: UIButton) {
+        displayLanguagesController()
+    }
+    
+    @IBAction func sourceButton(_ sender: UIButton) {
+        displayLanguagesController()
+    }
+    
+    
+    @IBAction func swapLanguage(_ sender: UIButton) {
+        let sourceLanguage = sourceButton.title(for: .normal)
+        let targetLanguage = targetButton.title(for: .normal)
+        sourceButton.setTitle(targetLanguage, for: .normal)
+        targetButton.setTitle(sourceLanguage, for: .normal)
     }
     
     
@@ -82,10 +97,3 @@ extension TranslationViewController: UITextViewDelegate {
         return true
     }
 }
-
-//extension ViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        return false
-//    }
-//}
