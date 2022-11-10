@@ -48,11 +48,15 @@ extension TranslationViewController {
         targetTextView.delegate = self
         sourceTextView.returnKeyType = .go
         sourceTextView.enablesReturnKeyAutomatically = true
+        sourceButton.tag = 100
+        targetButton.tag = 200
     }
     
-    func displayLanguagesController() {
+    func displayLanguagesController(buttonTag: Int) {
         let languagesController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LanguagesViewController") as! LanguagesViewController
         self.addChild(languagesController)
+        languagesController.updateDelegate = self
+        languagesController.currentButtonTag = buttonTag
         self.view.addSubview(languagesController.view)
         languagesController.didMove(toParent: self)
     }

@@ -44,13 +44,12 @@ class TranslationViewController: UIViewController {
     }
     
     @IBAction func targetButton(_ sender: UIButton) {
-        displayLanguagesController()
+        displayLanguagesController(buttonTag: sender.tag)
     }
     
     @IBAction func sourceButton(_ sender: UIButton) {
-        displayLanguagesController()
+        displayLanguagesController(buttonTag: sender.tag)
     }
-    
     
     @IBAction func swapLanguage(_ sender: UIButton) {
         let sourceLanguage = sourceButton.title(for: .normal)
@@ -96,4 +95,13 @@ extension TranslationViewController: UITextViewDelegate {
         }
         return true
     }
+}
+
+extension TranslationViewController: UpdateLanguageDelegate {
+    func updateSelectedLanguage(selected: String, buttonTag: Int) {
+        if let currentButton = topView.viewWithTag(buttonTag) as? UIButton {
+            currentButton.setTitle(selected, for: .normal)
+        }
+    }
+    
 }
