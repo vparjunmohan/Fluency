@@ -13,6 +13,7 @@
 		DE1FD611291C513100E927B3 /* LanguagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1FD610291C513100E927B3 /* LanguagesViewController.swift */; };
 		DE1FD614291C536C00E927B3 /* LanguagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1FD612291C536C00E927B3 /* LanguagesTableViewCell.swift */; };
 		DE1FD615291C536C00E927B3 /* LanguagesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1FD613291C536C00E927B3 /* LanguagesTableViewCell.xib */; };
+		DE1FD618291CD25300E927B3 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1FD617291CD25300E927B3 /* AppUtils.swift */; };
 		DE898C4D291C021D00FB744D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE898C4C291C021D00FB744D /* AppDelegate.swift */; };
 		DE898C4F291C021D00FB744D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE898C4E291C021D00FB744D /* SceneDelegate.swift */; };
 		DE898C51291C021D00FB744D /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE898C50291C021D00FB744D /* TranslationViewController.swift */; };
@@ -53,6 +54,7 @@
 		DE1FD610291C513100E927B3 /* LanguagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewController.swift; sourceTree = "<group>"; };
 		DE1FD612291C536C00E927B3 /* LanguagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesTableViewCell.swift; sourceTree = "<group>"; };
 		DE1FD613291C536C00E927B3 /* LanguagesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguagesTableViewCell.xib; sourceTree = "<group>"; };
+		DE1FD617291CD25300E927B3 /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		DE898C49291C021D00FB744D /* Fluency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fluency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE898C4C291C021D00FB744D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE898C4E291C021D00FB744D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DE1FD616291CD22900E927B3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DE1FD617291CD25300E927B3 /* AppUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DE898C40291C021D00FB744D = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +165,7 @@
 				DE898C7E291C02D000FB744D /* Storyboards and Xibs */,
 				DEE1CC3E291C29A40062CE86 /* Extensions */,
 				DE898C7F291C02DE00FB744D /* Resources */,
+				DE1FD616291CD22900E927B3 /* Utils */,
 				DE898C5A291C021D00FB744D /* Info.plist */,
 			);
 			path = Fluency;
@@ -509,6 +520,7 @@
 				DE898C51291C021D00FB744D /* TranslationViewController.swift in Sources */,
 				DE1FD614291C536C00E927B3 /* LanguagesTableViewCell.swift in Sources */,
 				DE898C4D291C021D00FB744D /* AppDelegate.swift in Sources */,
+				DE1FD618291CD25300E927B3 /* AppUtils.swift in Sources */,
 				DE1FD611291C513100E927B3 /* LanguagesViewController.swift in Sources */,
 				DE898C4F291C021D00FB744D /* SceneDelegate.swift in Sources */,
 				DEE1CC40291C2A000062CE86 /* AppExtensions.swift in Sources */,

@@ -19,13 +19,13 @@ class LanguagesViewController: UIViewController {
         return locale.localizedString(forLanguageCode: $0.rawValue)!
         < locale.localizedString(forLanguageCode: $1.rawValue)!
     }
+//    var supportedLan = TranslateLanguage.
     let localModels =  ModelManager.modelManager().downloadedTranslateModels
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         print(allLanguages)
-        print("local \(localModels)")
     }
     
     
@@ -50,14 +50,15 @@ extension LanguagesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LanguagesTableViewCell", for: indexPath) as! LanguagesTableViewCell
-        let currentModel = allLanguages[indexPath.row]
-        if localModels.description.contains(currentModel.rawValue) == false {
+        let languageModel = allLanguages[indexPath.row]
+        if localModels.description.contains(languageModel.rawValue) == false {
             cell.downloadButton.isHidden = false
         } else {
             cell.downloadButton.isHidden = true
         }
-        cell.languageName.text = allLanguages[indexPath.row].rawValue
-        
+        if AppUtils().retrieveLanguageName(languageCode: languageModel.rawValue) != "" {
+            cell.languageName.text = AppUtils().retrieveLanguageName(languageCode: languageModel.rawValue)
+        }
         cell.selectionStyle = .none
         return cell
     }
