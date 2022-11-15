@@ -389,4 +389,33 @@ class AppUtils: NSObject {
         }
     }
     
+    // Create a toast message view
+    func createToast(message: String, parentView: UIView, bottomView: UIView) {
+        if let currentToast = parentView.viewWithTag(101010101) as? UILabel {
+            currentToast.removeFromSuperview()
+        }
+        let toastLabel = UILabel()
+        toastLabel.tag = 101010101
+        toastLabel.translatesAutoresizingMaskIntoConstraints = false
+        toastLabel.text = message
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = UIFont(name: "Chalkboard SE Regular", size: 14.0)
+        toastLabel.textAlignment = .center
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds  =  true
+        parentView.addSubview(toastLabel)
+        parentView.bringSubviewToFront(toastLabel)
+        toastLabel.centerXAnchor.constraint(equalTo: parentView.centerXAnchor).isActive = true
+        toastLabel.bottomAnchor.constraint(equalTo: bottomView.topAnchor, constant: -20).isActive = true
+        toastLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        toastLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseInOut, animations: {
+                toastLabel.alpha = 0.5
+           }, completion: {(isCompleted) in
+                toastLabel.removeFromSuperview()
+           })
+    }
+    
 }

@@ -105,51 +105,56 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-Fs-llL">
-                                <rect key="frame" x="87.5" y="617" width="200" height="50"/>
+                                <rect key="frame" x="97.5" y="617" width="180" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tk-eU-dFR">
-                                        <rect key="frame" x="20" y="11.5" width="30" height="26.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="atA-I4-fPt"/>
-                                            <constraint firstAttribute="width" constant="30" id="pld-VL-5Ag"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemGray3Color"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="text.justify" catalog="system"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJH-aM-JWd">
-                                        <rect key="frame" x="150" y="10" width="30" height="29.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="38w-MV-hrM"/>
-                                            <constraint firstAttribute="height" constant="30" id="TSW-7c-E6g"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemGray3Color"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAA-Pm-kMF">
-                                        <rect key="frame" x="85" y="11.5" width="30" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="mZp-y6-uYn"/>
-                                            <constraint firstAttribute="height" constant="30" id="vFo-2J-O92"/>
-                                        </constraints>
-                                        <color key="tintColor" systemColor="systemGray3Color"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" backgroundImage="speaker.2.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="dictateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y9x-ff-rCA"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JeN-NM-eH1">
+                                        <rect key="frame" x="25" y="10" width="130" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2K7-2h-lue">
+                                                <rect key="frame" x="0.0" y="-0.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="4Ba-0W-fkj"/>
+                                                    <constraint firstAttribute="width" constant="30" id="nIL-5i-MXN"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemGray3Color"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" backgroundImage="mic.slash" catalog="system"/>
+                                                <state key="selected" backgroundImage="mic.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="transcribeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rCf-4y-f6L"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAA-Pm-kMF">
+                                                <rect key="frame" x="50" y="1.5" width="30" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Flk-Cp-DmA"/>
+                                                    <constraint firstAttribute="width" constant="30" id="TGv-oD-5PM"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemGray3Color"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" backgroundImage="speaker.2.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="dictateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y9x-ff-rCA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJH-aM-JWd">
+                                                <rect key="frame" x="100" y="0.0" width="30" height="29.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="AP5-W3-bDY"/>
+                                                    <constraint firstAttribute="width" constant="30" id="hsS-UG-v5K"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="systemGray3Color"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" backgroundImage="gearshape.fill" catalog="system"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="nJH-aM-JWd" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="Nb0-kK-P8L"/>
-                                    <constraint firstItem="2Tk-eU-dFR" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="OsO-gd-X44"/>
-                                    <constraint firstItem="2Tk-eU-dFR" firstAttribute="leading" secondItem="qwD-Fs-llL" secondAttribute="leading" constant="20" id="TOV-yE-Kvg"/>
-                                    <constraint firstItem="VAA-Pm-kMF" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="hGc-mg-K3I"/>
-                                    <constraint firstItem="VAA-Pm-kMF" firstAttribute="centerX" secondItem="qwD-Fs-llL" secondAttribute="centerX" id="p8Z-Th-sUs"/>
-                                    <constraint firstAttribute="trailing" secondItem="nJH-aM-JWd" secondAttribute="trailing" constant="20" id="qJZ-h1-QVV"/>
-                                    <constraint firstAttribute="width" constant="200" id="r1j-My-JlW"/>
+                                    <constraint firstItem="JeN-NM-eH1" firstAttribute="centerY" secondItem="qwD-Fs-llL" secondAttribute="centerY" id="Lie-vF-rVN"/>
+                                    <constraint firstItem="JeN-NM-eH1" firstAttribute="centerX" secondItem="qwD-Fs-llL" secondAttribute="centerX" id="aJ9-WR-TSe"/>
+                                    <constraint firstAttribute="width" constant="180" id="r1j-My-JlW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0e-Vf-sS2">
@@ -171,6 +176,9 @@
                                         <color key="tintColor" systemColor="systemGray3Color"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="doc.on.doc.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="copyToClipboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nhx-yB-T5e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -213,6 +221,7 @@
                         <outlet property="targetTextView" destination="Uwj-uw-Wjn" id="AU3-bo-Og7"/>
                         <outlet property="toLanguageView" destination="V0e-Vf-sS2" id="loY-J5-VfW"/>
                         <outlet property="topView" destination="cDm-ra-buR" id="07d-pr-QV2"/>
+                        <outlet property="transcribeButton" destination="2K7-2h-lue" id="vNi-Tk-Jgm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -305,8 +314,9 @@
         <image name="doc.on.doc.fill" catalog="system" width="116" height="128"/>
         <image name="fibrechannel" catalog="system" width="128" height="92"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="mic.fill" catalog="system" width="110" height="128"/>
+        <image name="mic.slash" catalog="system" width="108" height="128"/>
         <image name="speaker.2.fill" catalog="system" width="128" height="88"/>
-        <image name="text.justify" catalog="system" width="128" height="99"/>
         <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

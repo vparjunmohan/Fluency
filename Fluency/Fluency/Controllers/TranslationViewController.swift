@@ -8,6 +8,8 @@
 import UIKit
 import MLKit
 import AVFoundation
+import Speech
+import AVFAudio
 
 class TranslationViewController: UIViewController {
     
@@ -19,16 +21,24 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var targetTextView: UITextView!
     @IBOutlet weak var sourceButton: UIButton!
     @IBOutlet weak var targetButton: UIButton!
+    @IBOutlet weak var transcribeButton: UIButton!
     
     var translator: Translator!
     let locale = Locale.current
     let localModels =  ModelManager.modelManager().downloadedTranslateModels
     let synthesizer = AVSpeechSynthesizer()
+
+
+    private var speechRecognitionRequest:
+       SFSpeechAudioBufferRecognitionRequest?
+    private var speechRecognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+//        authorizeSR()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,6 +87,113 @@ class TranslationViewController: UIViewController {
         }
     }
     
+    @IBAction func copyToClipboard(_ sender: UIButton) {
+        let translated = targetTextView.text.trimmingCharacters(in: .whitespaces)
+        if translated != "" {
+            UIPasteboard.general.string = translated
+            AppUtils().createToast(message: "Copied", parentView: view, bottomView: bottomView)
+        }
+    }
+    
+    @IBAction func transcribeAction(_ sender: UIButton) {
+//        sender.isSelected = !sender.isSelected
+//        if sender.isSelected == true {
+//            print("transcribe selected")
+//            try! startSession()
+//        } else {
+//            print("transcribe not selected")
+//            if audioEngine.isRunning {
+//                  audioEngine.stop()
+//                  speechRecognitionRequest?.endAudio()
+////                  transcribeButton.isEnabled = true
+//
+//              }
+//        }
+    }
+    
+//    func startSession() throws {
+//
+//        if let recognitionTask = speechRecognitionTask {
+//            recognitionTask.cancel()
+//            self.speechRecognitionTask = nil
+//        }
+//
+//        let audioSession = AVAudioSession.sharedInstance()
+//
+//        try audioSession.setCategory(AVAudioSession.Category.record)
+//
+//
+//        let sourceLanguage = AppUtils().retrieveLanguageCode(rawValue: sourceButton.title(for: .normal)!.lowercased())
+//        let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: sourceLanguage.rawValue))!
+//
+//        speechRecognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+//
+//        guard let recognitionRequest = speechRecognitionRequest else { fatalError("SFSpeechAudioBufferRecognitionRequest object creation failed") }
+//
+//        let inputNode = audioEngine.inputNode
+//
+//
+//        recognitionRequest.shouldReportPartialResults = true
+//
+//        speechRecognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
+//
+//            var finished = false
+//
+//            if let result = result {
+//                self.sourceTextView.text =
+//                result.bestTranscription.formattedString
+//                finished = result.isFinal
+//            }
+//
+//            if error != nil || finished {
+//                self.audioEngine.stop()
+//                inputNode.removeTap(onBus: 0)
+//
+//                self.speechRecognitionRequest = nil
+//                self.speechRecognitionTask = nil
+//
+////                self.transcribeButton.isEnabled = true
+//            }
+//        }
+//        inputNode.removeTap(onBus: 0)
+//        let recordingFormat = inputNode.outputFormat(forBus: 0)
+//
+//        inputNode.installTap(onBus: 0, bufferSize: 2048, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
+//
+//            self.speechRecognitionRequest?.append(buffer)
+//        }
+//
+//        audioEngine.prepare()
+//        try audioEngine.start()
+//    }
+    
+    
+//    func authorizeSR() {
+//        SFSpeechRecognizer.requestAuthorization { authStatus in
+//
+//            OperationQueue.main.addOperation {
+//                switch authStatus {
+//                case .authorized:
+//                    self.transcribeButton.isEnabled = true
+//
+//                case .denied:
+//                    self.transcribeButton.isEnabled = false
+//                    self.transcribeButton.setTitle("Speech recognition access denied by user", for: .disabled)
+//
+//                case .restricted:
+//                    self.transcribeButton.isEnabled = false
+//                    self.transcribeButton.setTitle("Speech recognition restricted on device", for: .disabled)
+//
+//                case .notDetermined:
+//                    self.transcribeButton.isEnabled = false
+//                    self.transcribeButton.setTitle("Speech recognition not authorized", for: .disabled)
+//                @unknown default:
+//                    break
+//                }
+//            }
+//        }
+//    }
+    
     func translate() {
         let sourceLanguage = AppUtils().retrieveLanguageCode(rawValue: sourceButton.title(for: .normal)!.lowercased())
         let targetLanguage = AppUtils().retrieveLanguageCode(rawValue: targetButton.title(for: .normal)!.lowercased())
@@ -98,41 +215,8 @@ class TranslationViewController: UIViewController {
                 }
             }
         }
-
-//        let enteredText = sourceTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
-//        if enteredText != "" {
-//            translator.translate(enteredText) { [self] translatedText, error in
-//                guard error == nil, let translatedText = translatedText else { return }
-//                // Translation succeeded.
-//                targetTextView.text = translatedText
-//
-//            }
-//        }
     }
-//    @IBAction func translate(_ sender: UIButton) {
-//        // Create an English-German translator:
-//        let options = TranslatorOptions(sourceLanguage: .english, targetLanguage: .german)
-//        let englishGermanTranslator = Translator.translator(options: options)
-//
-//        let conditions = ModelDownloadConditions(
-//            allowsCellularAccess: true,
-//            allowsBackgroundDownloading: true
-//        )
-//        englishGermanTranslator.downloadModelIfNeeded(with: conditions) { [self] error in
-//            guard error == nil else { return }
-//
-//            // Model downloaded successfully. Okay to start translating.
-////            let enteredText = inputTextField.text!
-//
-////            englishGermanTranslator.translate(enteredText) { [self] translatedText, error in
-////                guard error == nil, let translatedText = translatedText else { return }
-////
-////                // Translation succeeded.
-//////                translatedTextView.text = translatedText
-////
-////            }
-//        }
-//    }
+
     
     
 }
