@@ -3,8 +3,9 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Fluency is a minimal translator iOS application that uses Google's MLKit to translate between different languages.
+Fluency is a minimal iOS translator application that uses Google's MLKit to translate between different languages.
 
+![screenshot](https://user-images.githubusercontent.com/62532677/201827637-345be659-dd1a-4d3a-90fd-c076b742afbe.png)
 
 ## Features
 
