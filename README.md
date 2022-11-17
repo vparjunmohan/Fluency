@@ -1,4 +1,4 @@
-# Fluency -  Simple translator app
+# Fluency -  Simple Translator
 
 
 ![screenshot](https://user-images.githubusercontent.com/62532677/201827637-345be659-dd1a-4d3a-90fd-c076b742afbe.png)
