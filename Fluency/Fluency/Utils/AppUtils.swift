@@ -346,7 +346,7 @@ class AppUtils: NSObject {
             languageCode = .tamil
         case "telugu":
             languageCode = .telugu
-        case "northaiwegian":
+        case "thai":
             languageCode = .thai
         case "turkish":
             languageCode = .turkish
@@ -369,24 +369,24 @@ class AppUtils: NSObject {
         
         // Keep a reference to the download progress so you can check that the model
         // is available before you use it.
-        var progress = ModelManager.modelManager().download(
+        let progress = ModelManager.modelManager().download(
             downloadModel,
             conditions: ModelDownloadConditions(
                 allowsCellularAccess: true,
                 allowsBackgroundDownloading: true
             )
         )
-        if progress.isFinished == true {
-            print("finished")
-        } else {
-            ModelManager.modelManager().download(
-                downloadModel,
-                conditions: ModelDownloadConditions(
-                    allowsCellularAccess: true,
-                    allowsBackgroundDownloading: true
-                )
-            )
-        }
+//        if progress.isFinished == true {
+//            print("finished")
+//        } else {
+//            ModelManager.modelManager().download(
+//                downloadModel,
+//                conditions: ModelDownloadConditions(
+//                    allowsCellularAccess: true,
+//                    allowsBackgroundDownloading: true
+//                )
+//            )
+//        }
     }
     
     // Create a toast message view
@@ -400,7 +400,7 @@ class AppUtils: NSObject {
         toastLabel.text = message
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
-        toastLabel.font = UIFont(name: "Chalkboard SE Regular", size: 14.0)
+        toastLabel.font = UIFont(name: "Avenir Next Medium", size: 14)
         toastLabel.textAlignment = .center
         toastLabel.alpha = 1.0
         toastLabel.layer.cornerRadius = 10

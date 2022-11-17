@@ -33,7 +33,7 @@ class LanguagesViewController: UIViewController {
         setupUI()
         
         for model in localModels {
-            var index = allLanguages.firstIndex(of: model.language)
+            let index = allLanguages.firstIndex(of: model.language)
             indexArray.append(IndexPath(row: index!, section: 0))
         }
         
@@ -80,7 +80,7 @@ extension LanguagesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedCell = tableView.cellForRow(at: indexPath) as? LanguagesTableViewCell {
             
-//            AppUtils().downloadLanguage(language: AppUtils().retrieveLanguageCode(rawValue: selectedCell.languageName.text!.lowercased()))
+            AppUtils().downloadLanguage(language: AppUtils().retrieveLanguageCode(rawValue: selectedCell.languageName.text!.lowercased()))
 //            languageTableView.reloadData()
             if updateDelegate != nil {
                 updateDelegate.updateSelectedLanguage(selected: selectedCell.languageName.text!, buttonTag: currentButtonTag)
