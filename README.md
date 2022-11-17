@@ -1,7 +1,6 @@
 # Fluency
 ## Simple translator app
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 Fluency is a minimal iOS translator application that uses Google's MLKit to translate between different languages.
 
